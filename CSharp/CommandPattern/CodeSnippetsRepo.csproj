@@ -48,6 +48,8 @@
     <Compile Include="CommandPattern\PriceCalculatorForGermany.cs" />
     <Compile Include="CommandPattern\PriceCalculatorForTurkey.cs" />
     <Compile Include="CommandPattern\PriceCalculatorMaker.cs" />
+    <Compile Include="FibonacciSeries\Client.cs" />
+    <Compile Include="FibonacciSeries\Fibonacci.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
