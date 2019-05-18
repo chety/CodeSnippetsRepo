@@ -8,7 +8,7 @@ namespace CodeSnippetsRepo.FibonacciSeries
 {
     class Client
     {
-        private static void Main(string[] args)
+        private static void Main1(string[] args)
         {
             var fibonacci = new Fibonacci();
             fibonacci.GetFibonacciByLoop(5);
