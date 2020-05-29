@@ -57,11 +57,13 @@ console.log(accessAsRandom("Chety"));
 function maxWordAndCount(sentence){
     const cleanSentence = sentence.replace(/[^0-9a-zA-Z\s]+/g,"");
     const processedWords = Object.create(null);
-    return cleanSentence.split(" ").reduce((acc,curr) => {       
+    return cleanSentence.split(" ").reduce((acc,curr) => {    
+         //word is processed before. Just skip it return existing acc value
          if(curr in processedWords){
             return acc;
          }
          processedWords[curr] = true;
+         
          if(acc.value === curr){
             return acc;
         }
