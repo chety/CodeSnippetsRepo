@@ -47,6 +47,14 @@ function randomUserIp(){
 ```
 - Write a function which generates a randomMacAddress
 ```javascript
+function createDataset(){
+    let alphabet = "0123456789";
+    for(let i = 65; i<=90;i++){
+      alphabet += String.fromCharCode(i);
+    }
+    return alphabet;
+}
+
 function randomMacAddres(){
     //39-15-AD-G0-EQ-AL
     const alphabet = createDataset();
