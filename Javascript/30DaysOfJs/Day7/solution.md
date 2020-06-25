@@ -75,4 +75,27 @@ function randomMacAddres(){
 ***
 ### Level-3 Solutions
 
+- Write a function convertHexaToRgb which converts hexa color to rgb and it returns an rgb color
+```javascript
+function convertHexaToRgb(hexValue){
+     let hex = hexValue;
+     if(hexValue.startsWith("#")){
+        hex = hex.slice(1);
+     }
+     const red = parseInt(hex.slice(0,2),16);
+     const green = parseInt(hex.slice(2,4),16);
+     const blue = parseInt(hex.slice(4),16);
+    return `rgb(${red},${green},${blue})`
+}
 
+convertHexaToRgb("#ff8c64"); //"rgb(255,140,100)"
+convertHexaToRgb("ff8c64");  //"rgb(255,140,100)"
+```
+-Write a function convertRgbToHexa which converts rgb to hexa color and it returns an hexa color.
+```javascript
+function convertRgbToHexa(r,g,b){
+    return `#${(r).toString(16)}${(g).toString(16)}${(b).toString(16)}`
+}
+
+convertRgbToHexa(255,140,100); //"#ff8c64"
+```
