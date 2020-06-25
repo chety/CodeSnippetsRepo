@@ -98,5 +98,38 @@ function mostSpokenLanguages(countries,limit = 10){
 3. Use countries_data.js file create a function which create the ten most populated countries
 
 ```javascript
+function sortDataByField(data,field,limit= 5,direction="asc"){
+    
+    function sortByNumberField(obj1,obj2,field,direction){
+        const firstValue = obj1[field];
+        const secondValue = obj2[field];
+        return direction === "desc" ? secondValue - firstValue
+                                     : firstValue - secondValue;
+    }
 
+    function sortByStringField(obj1,obj2,field,direction){
+        const firstValue = obj1[field];
+        const secondValue = obj2[field];
+        if(firstValue === secondValue){
+            //do nothing. Do not move elements
+            return 0;
+        }
+        //-1 means move element to the left, 1 means move element to the right
+        //by default we say if it is lower then move to the left. That means it is ascending order(Lower to higher)
+        let result = firstValue < secondValue ? -1 : 1;
+        
+        if(direction === "desc"){
+            result *= -1;
+        }
+        return result;
+    }
+    
+    const copyData = data.slice();
+    const sortFunc = typeof copyData[0][field] === "number" ? sortByNumberField: sortByStringField;
+    copyData.sort((a,b) => sortFunc.call(null,a,b,field,direction))     
+    return copyData.slice(0,limit).map(c => ({country: c.name, population: c.population}));    
+}
+
+sortDataByField(countries,"name",10); //sort countries by their names ascending. 10 items
+sortDataByField(countries,"population",25,"desc") //sort countries by their population descending(from higher to lower). 25 items
 ```
