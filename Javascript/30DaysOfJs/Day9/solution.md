@@ -1,5 +1,4 @@
 ## Level 2 Questions
-**countries data** -> https://github.com/Asabeneh/30DaysOfJavaScript/blob/master/09_Day/09_day_starter/data/countries_data.js
 
 4. Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
 
@@ -52,4 +51,52 @@ function getLastTenCountries(countries){
     return copyCountries
     */
 }
+```
+***
+### Level 3
+1. Use the countries information, in the data folder. Sort countries by name, by capital, by population
+
+```javascript
+function sortCountriesBy(countries,sortField){
+    const copyCountries = countries.slice();
+    return sortField === "population" ? 
+            copyCountries.sort((a,b) => a.population - b.population) :
+            copyCountries.sort((a,b) => a[sortField] < b[sortField])
+}
+sortCountriesBy(countries,"population"); //sort by population ascending
+sortCountriesBy(countries,"name"); //sort by name
+```
+2. Find the 10 most spoken languages
+
+```javascript
+function getAllLanguages(countries){
+    return countries.reduce((acc,curr) => {
+    acc = acc.concat(curr.languages)
+    return acc;
+}, []);
+}
+
+function parseLanguageAndItCount(languages){
+    return languages.reduce((acc,curr) => {
+        acc[curr] = getValueOrDefault(acc,curr,0) + 1;
+        return acc;
+   },{});
+}
+
+function mostSpokenLanguages(countries,limit = 10){
+    const allLanguages = getAllLanguages(countries);
+    const languageStore = parseLanguageAndItCount(allLanguages);
+    
+    return Object.entries(languageStore)
+           .sort((a,b) => b[1] - a[1])
+           .slice(0,limit)
+           .map(item => `(${item[1]}, ${item[0]})`)
+}
+
+```
+
+3. Use countries_data.js file create a function which create the ten most populated countries
+
+```javascript
+
 ```
