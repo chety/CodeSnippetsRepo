@@ -6,7 +6,7 @@
 function getValueOrDefault(obj,prop,defaultVal){
     if(Object.prototype.hasOwnProperty.call(obj,prop)){
         return obj[prop];
-    }
+    }    
     return defaultVal;
 }
 
@@ -132,4 +132,65 @@ function sortDataByField(data,field,limit= 5,direction="asc"){
 
 sortDataByField(countries,"name",10); //sort countries by their names ascending. 10 items
 sortDataByField(countries,"population",25,"desc") //sort countries by their population descending(from higher to lower). 25 items
+```
+
+4.  Try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create an object called statistics and create all the functions which do statistical calculations as method for the statistics object
+
+```javascript
+const statistic = {
+     ages: [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26],
+    count(){
+        return this.ages.length;
+    },
+    sum(){
+        return this.ages.reduce((acc,curr) => acc + curr, 0);
+    },
+
+    min(){
+        return Math.min.apply(this,this.ages);
+    },
+    max(){
+        return Math.max.apply(this,this.ages);
+    },
+    range(){
+      return this.max() - this.min()
+    },
+    mean(){
+        return Math.round(this.sum() / this.count())
+    },
+    median(){
+        const length = this.ages.length;
+        const copyAges = this.ages.sort((a,b) => a - b)
+        if(length % 2 !== 0){
+            return copyAges[Math.floor(length / 2)]
+        }
+        return (copyAges[length / 2] + copyAges[length / 2 -1]) / 2
+    },
+    mode(){
+      const modeStore = this.ages.reduce((acc,curr) => {
+            acc[curr] = (acc[curr] || 0) + 1
+            return acc;
+      },{})
+
+     const [mode,count] = Object.entries(modeStore).sort((a,b) => b[1] - a[1])[0];
+     return {mode,count}
+    },
+    variance(){
+         const mean = this.mean();
+         const result = this.ages.reduce((acc,curr) => {
+            acc +=  (curr - mean) ** 2
+            return acc;
+         },0);
+        return result / this.count()
+    },
+    standartDeviation(){
+        return Math.sqrt(this.variance()).toFixed(1)
+    },
+    frequencyDistribution(){
+
+    },
+    describe(){
+
+    }
+}
 ```
