@@ -1,4 +1,6 @@
-//Callback. First version of asyncronous programming in js. 
+
+> Callback. First version of asyncronous programming in js. 
+```js
 function printStringWithCallback(word, callback) {
     setTimeout(() => {
         console.log(word);
@@ -13,10 +15,10 @@ function printAllCallback() {
         });
     });
 }
+```
 
-//--------------
-
-//Promise is second version of asyncronous programing in js.
+> Promise is second version of asyncronous programing in js.
+```js
 function printStringWithPromise(word) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -32,12 +34,13 @@ function printAllPromise() {
     // printStringWithPromise("A").then(() => printStringWithPromise("B")).then(() => printStringWithPromise("C"))
     printStringWithPromise("A").then(printStringWithPromise("B")).then(printStringWithPromise("C"))
 }
+```
 
-
-//--------------------
-//async await is the modern way to make asyncronous call in js. Instad of then in promise call syntax we use "await" keyword inside an "async" function
+> async await is the modern way to make asyncronous call in js. Instad of then in promise call syntax we use "await" keyword inside an "async" function
+```js
 async function printStringWithAsync() {
     await printStringWithPromise("A");
     await printStringWithPromise("B");
     await printStringWithPromise("C");
 }
+```
