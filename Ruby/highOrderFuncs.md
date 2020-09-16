@@ -1,3 +1,4 @@
+```rb
 def letter_count(word)
     letters = Hash.new(0)
     return word.each_char.inject(letters) { |acc,curr| acc[curr] += 1; acc }    
@@ -24,3 +25,4 @@ print min_1," ",min_2,"\n"
 sum_of_evens = [11, 7, 2, 4,12].inject(0) { |acc,num| acc += num.even? ? num : 0 }
 puts sum_of_evens
 ###############################
+```
