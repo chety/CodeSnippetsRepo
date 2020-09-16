@@ -1,3 +1,4 @@
+```rb
 def sum(nums)
   #The last line is automatically returned by Ruby. reduce and inject do the same job
   # nums.inject(0, :+)
@@ -66,3 +67,4 @@ multi_d = [
 p multi_d.flatten(1)
 
 p "-" * 10
+```
