@@ -1,3 +1,4 @@
+```ruby
 #symbols are used for constants. Symbol value does not change durungi program
 #Strings in ruby is mutable(can be changed) that means every change to them will be stored in different section of memory
 #Symbols are immutable. They do not change during our program, and always are kept in the same memory location
@@ -69,3 +70,4 @@ end
 p write_name("zilx") # "zilx"
 p write_name("mirko ",{times:2}) #"mirko mirko "
 p write_name("rodik ",upper:true,times:3) #"RODIK RODIK RODIK "
+```
