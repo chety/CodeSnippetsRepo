@@ -1,3 +1,4 @@
+```rb
 #splat opearator (*) is very useful for variadic parameters,unpacking arrays ...etc. It is same as javascript rest operator which is (...)
 
 #we can use splat to get remaning parameters(like rest parameters in javascript)
@@ -25,3 +26,4 @@ puts super_user
 
 first,second,*rest = [1,2,3,4,5,6]
 print first," - ",second," - ",rest, "\n" #1 - 2 - [3, 4, 5, 6]
+```
