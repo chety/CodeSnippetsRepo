@@ -10,7 +10,7 @@ p doubler.call(5) #10
 p "-" * 30
 ```
 
--In javascript we can pass functions to another functions as arguments but in ruby it is not directly achievable. But we can try :)
+- In javascript we can pass functions to another functions as arguments but in ruby it is not directly achievable. But we can try :)
 ```rb
 def sum_and_proc(num1,num2,proc)
     sum = num1 + num2
